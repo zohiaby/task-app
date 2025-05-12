@@ -1,4 +1,4 @@
-# Salesflo - Shop Management System
+#  Shop Management System
 
 A comprehensive solution for managing vendors, shops, and locations built with modern technologies.
 
