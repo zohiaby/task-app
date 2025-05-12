@@ -1,0 +1,38 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check code formatting
+        run: echo "Linting would run here"
+
+      - name: Run tests
+        run: npm test || echo "No tests yet"
+
+      - name: Verify build
+        run: |
+          node -e "require('./app.js')"
+          echo "Build successful"

@@ -1,0 +1,24 @@
+# Exclude node_modules directories
+/backend/node_modules/
+/frontend/node_modules/
+
+# # Exclude environment files
+# .env
+
+# Exclude log files
+*.log
+
+# Exclude build directories
+/backend/dist/
+/frontend/.next/
+
+# Exclude system files
+.DS_Store
+Thumbs.db
+
+# Exclude temporary files
+*.tmp
+*.swp
+
+# Exclude coverage reports
+coverage/
